@@ -1,0 +1,14 @@
+language: swift
+
+branches:
+ only:
+ - master
+
+xcode_project: Dequable.xcodeproj
+xcode_scheme: Dequable
+osx_image: xcode9
+xcode_sdk: iphonesimulator11.0
+
+script: 
+ - xcodebuild -scheme Dequable -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6,OS=11.0' test
+ 
