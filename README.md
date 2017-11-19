@@ -23,8 +23,6 @@ class TableViewCell: UITableViewCell, DequeableComponentIdentifiable {}
 class TableView: UITableView, DequeableTableView {}
 ```
 
-If you use interface builder then you will need to specify a cell identifier in your interface builder file. The cell identifier should be `"Filename"` + `"ID"`. In this example it would be `"TableViewCellID"`.
-
 Now you can dequee strongly typed let constants.
 
 ```swift
@@ -33,6 +31,8 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
   return cell
 }
 ```
+
+If you use interface builder then you will need to specify a cell identifier in your interface builder file. The cell identifier should be `"Filename"` + `"ID"`. In this example it would be `"TableViewCellID"`. 
 
 It is assumed your interface builder file is in the same bundle. So in this example, if we created an interface builder file for TableViewCell, we would include it in the same bundle as the TableViewCell.swift file.
 
