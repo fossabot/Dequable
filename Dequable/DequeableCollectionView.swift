@@ -9,14 +9,19 @@
 import UIKit
 
 public protocol DequeableCollectionView: Dequeable {
-    func dequeue(cellType: DequeableComponentIdentifiable.Type, atIndexPath indexPath: IndexPath) -> UICollectionViewCell
+  func dequeue(cellType: DequeableComponentIdentifiable.Type, atIndexPath indexPath: IndexPath) -> UICollectionViewCell
+  func dequeue<T>(_ indexPath: IndexPath) -> T where T : UICollectionViewCell & DequeableComponentIdentifiable
 }
 
-extension DequeableCollectionView where Self: UICollectionView {
+public extension DequeableCollectionView where Self: UICollectionView {
     
-    public func dequeue(cellType: DequeableComponentIdentifiable.Type, atIndexPath indexPath: IndexPath) -> UICollectionViewCell {
-        let identifier = cellType.dequableComponentIdentifier
-        return dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
-    }
+  func dequeue(cellType: DequeableComponentIdentifiable.Type, atIndexPath indexPath: IndexPath) -> UICollectionViewCell {
+      let identifier = cellType.dequableComponentIdentifier
+      return dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
+  }
+  
+  func dequeue<T>(_ indexPath: IndexPath) -> T where T : UICollectionViewCell & DequeableComponentIdentifiable {
+    return dequeueReusableCell(withReuseIdentifier: T.dequableComponentIdentifier, for: indexPath) as! T
+  }
     
 }
