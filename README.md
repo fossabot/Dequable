@@ -23,14 +23,18 @@ class TableViewCell: UITableViewCell, DequeableComponentIdentifiable {}
 class TableView: UITableView, DequeableTableView {}
 ```
 
-Now you can dequee strongly typed let constants.
+Then dequeue by explicity typing a stored property. You may want to use the awesome [require framework](https://github.com/JohnSundell/Require) to lock down your optionals.
 
 ```swift
 func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-  let cell: TableViewCell = (tableView as! DequeableTableView).dequeue(indexPath)
+  let dequeableTableView: DequeableTableView = (tableView as? DequeableTableView).require(hint: "TableView must conform to DequeableTableView")
+  let cell: TableViewCell = dequeableTableView.dequeue(indexPath)
   return cell
 }
+
 ```
+
+## Interface Builder
 
 If you use interface builder then you will need to specify a cell identifier in your interface builder file. The cell identifier should be `"Filename"` + `"ID"`. In this example it would be `"TableViewCellID"`. 
 
@@ -53,16 +57,6 @@ class TableView: UITableView, DequeableTableView {
 }
 ```
 
-You may want to use the awesome [require framework](https://github.com/JohnSundell/Require) to lock down your optionals.
-
-```swift
-func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-  let dequeableTableView: DequeableTableView = (tableView as? DequeableTableView).require(hint: "TableView must conform to DequeableTableView")
-  let cell: TableViewCell = dequeableTableView.dequeue(indexPath)
-  return cell
-}
-
-```
 
 ## Installing
 
