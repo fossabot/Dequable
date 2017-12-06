@@ -58,9 +58,9 @@ func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath:
 
 ## Interface Builder
 
-If you use interface builder then you will need to specify a cell identifier in your interface builder file. The cell identifier should be `"Filename"` + `"ID"`. In in the above UITableView example it would be `"TableViewCellID"`. 
+If you use interface builder then you will need to specify a cell identifier in your interface builder file. The cell identifier should be `"Filename"` + `"ID"`. In the above UITableView example it would be `"TableViewCellID"`. 
 
-It is assumed your interface builder file is in the same bundle. So in this example, if we created an interface builder file `TableViewCell.xib`, we would include it in the same bundle as `TableViewCell.swift`.
+It is assumed your interface builder file is in the same bundle. Using the same example above, if we created an interface builder file `TableViewCell.xib`, it would be accompanied in the same bundle as `TableViewCell.swift`.
 
 If you are not using storyboard + prototype cells then register your cells somewhere suitable.
 
