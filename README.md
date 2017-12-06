@@ -13,7 +13,7 @@
 
 Dequable allows you to write strongly typed let constants for your dequable UI components and limits the need for string based cell identifiers. If you don't use interface builder, then **you will not need to declare any cell identifiers**.
 
-## Usage
+## UITableView
 
 Declare conformance.
 
@@ -27,20 +27,42 @@ Then dequeue by explicity typing a stored property. You may want to use the awes
 
 ```swift
 func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-  let dequeableTableView: DequeableTableView = (tableView as? DequeableTableView).require(hint: "TableView must conform to DequeableTableView")
+  let dequeableTableView: DequeableTableView = (tableView as? DequeableTableView).require(hint: "Must conform to DequeableTableView")
   let cell: TableViewCell = dequeableTableView.dequeue(indexPath)
   return cell
 }
 
 ```
 
+## UICollectionView
+
+Declare conformance.
+
+```swift
+class CollectionViewCell: UICollectionViewCell, DequeableComponentIdentifiable {}
+
+class CollectionView: UICollectionView, DequeableCollectionView {}
+```
+
+Then dequeue by explicity typing a stored property. You may want to use the awesome [require framework](https://github.com/JohnSundell/Require) to lock down your optionals.
+
+```swift
+func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+  let dequeableCollectionView: DequeableTableView = (collectionView as? DequeableCollectionView).require(hint: "Must conform to DequeableCollectionView")
+  let cell: CollectionViewCell = dequeableCollectionView.dequeue(indexPath)
+  return cell
+}
+
+```
+
+
 ## Interface Builder
 
-If you use interface builder then you will need to specify a cell identifier in your interface builder file. The cell identifier should be `"Filename"` + `"ID"`. In this example it would be `"TableViewCellID"`. 
+If you use interface builder then you will need to specify a cell identifier in your interface builder file. The cell identifier should be `"Filename"` + `"ID"`. In in the above UITableView example it would be `"TableViewCellID"`. 
 
-It is assumed your interface builder file is in the same bundle. So in this example, if we created an interface builder file for TableViewCell, we would include it in the same bundle as the TableViewCell.swift file.
+It is assumed your interface builder file is in the same bundle. So in this example, if we created an interface builder file `TableViewCell.xib`, we would include it in the same bundle as `TableViewCell.swift`.
 
-If you are not using storyboard + prototype cells then register your cells.
+If you are not using storyboard + prototype cells then register your cells somewhere suitable.
 
 ```swift
 class TableView: UITableView, DequeableTableView {
