@@ -48,7 +48,7 @@ Then dequeue by explicity typing a stored property. You may want to use the awes
 
 ```swift
 func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-  let dequeableCollectionView: DequeableTableView = (collectionView as? DequeableCollectionView).require(hint: "Must conform to DequeableCollectionView")
+  let dequeableCollectionView: DequeableCollectionView = (collectionView as? DequeableCollectionView).require(hint: "Must conform to DequeableCollectionView")
   let cell: CollectionViewCell = dequeableCollectionView.dequeue(indexPath)
   return cell
 }
