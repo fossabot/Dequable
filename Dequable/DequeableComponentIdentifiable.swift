@@ -12,11 +12,10 @@ public protocol DequeableComponentIdentifiable: class {
     static var dequableComponentIdentifier: String { get }
 }
 
-extension DequeableComponentIdentifiable {
+public extension DequeableComponentIdentifiable {
   
-    public static var dequableComponentIdentifier: String {
-        let className = NSStringFromClass(Self.self).components(separatedBy: ".").last!
-        return className + "ID"
+    static var dequableComponentIdentifier: String {
+        return NSStringFromClass(Self.self).components(separatedBy: ".").last! + "ID"
     }
     
 }

@@ -9,12 +9,20 @@
 import UIKit
 
 public protocol Dequeable {
+    func register(cellType: DequeableComponentIdentifiable.Type)
     func register(cellType: DequeableComponentIdentifiable.Type, hasNib: Bool)
 }
 
-extension Dequeable where Self: UITableView {
+public extension Dequeable {
     
-    public func register(cellType: DequeableComponentIdentifiable.Type, hasNib: Bool) {
+    func register(cellType: DequeableComponentIdentifiable.Type) {
+        register(cellType: cellType, hasNib: false)
+    }
+}
+
+public extension Dequeable where Self: UITableView {
+    
+    func register(cellType: DequeableComponentIdentifiable.Type, hasNib: Bool) {
         let identifier = cellType.dequableComponentIdentifier
         if hasNib == true {
             let className = NSStringFromClass(cellType).components(separatedBy: ".").last!
@@ -24,12 +32,11 @@ extension Dequeable where Self: UITableView {
             register(cellType, forCellReuseIdentifier: identifier)
         }
     }
-    
 }
 
-extension Dequeable where Self: UICollectionView {
+public extension Dequeable where Self: UICollectionView {
     
-    public func register(cellType: DequeableComponentIdentifiable.Type, hasNib: Bool) {
+    func register(cellType: DequeableComponentIdentifiable.Type, hasNib: Bool) {
         let identifier = cellType.dequableComponentIdentifier
         if hasNib == true {
             let className = NSStringFromClass(cellType).components(separatedBy: ".").last!
@@ -39,5 +46,4 @@ extension Dequeable where Self: UICollectionView {
             register(cellType, forCellWithReuseIdentifier: identifier)
         }
     }
-    
 }

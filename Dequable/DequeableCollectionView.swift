@@ -9,19 +9,29 @@
 import UIKit
 
 public protocol DequeableCollectionView: Dequeable {
-  func dequeue(cellType: DequeableComponentIdentifiable.Type, atIndexPath indexPath: IndexPath) -> UICollectionViewCell
-  func dequeue<T>(_ indexPath: IndexPath) -> T where T : UICollectionViewCell & DequeableComponentIdentifiable
+    func register(_ headerFooterViewType: DequeableComponentIdentifiable.Type, forSupplementaryViewOfKind kind: String)
+    func register(_ headerFooterViewType: DequeableComponentIdentifiable.Type, forSupplementaryViewOfKind kind: String, hasNib: Bool)
+    func dequeue<T>(_ indexPath: IndexPath) -> T where T : UICollectionViewCell & DequeableComponentIdentifiable
 }
 
 public extension DequeableCollectionView where Self: UICollectionView {
     
-  func dequeue(cellType: DequeableComponentIdentifiable.Type, atIndexPath indexPath: IndexPath) -> UICollectionViewCell {
-      let identifier = cellType.dequableComponentIdentifier
-      return dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
-  }
-  
-  func dequeue<T>(_ indexPath: IndexPath) -> T where T : UICollectionViewCell & DequeableComponentIdentifiable {
-    return dequeueReusableCell(withReuseIdentifier: T.dequableComponentIdentifier, for: indexPath) as! T
-  }
+    func register(_ headerFooterViewType: DequeableComponentIdentifiable.Type, forSupplementaryViewOfKind kind: String) {
+        register(headerFooterViewType, forSupplementaryViewOfKind: kind, hasNib: false)
+    }
     
+    func register(_ headerFooterViewType: DequeableComponentIdentifiable.Type, forSupplementaryViewOfKind kind: String, hasNib: Bool) {
+        let identifier = headerFooterViewType.dequableComponentIdentifier
+        if hasNib == true {
+            let className = NSStringFromClass(headerFooterViewType).components(separatedBy: ".").last!
+            let nib = UINib(nibName: className, bundle: Bundle(for: headerFooterViewType))
+            register(nib, forSupplementaryViewOfKind: kind, withReuseIdentifier: identifier)
+        } else {
+            register(headerFooterViewType, forSupplementaryViewOfKind: kind, withReuseIdentifier: identifier)
+        }
+    }
+    
+    func dequeue<T>(_ indexPath: IndexPath) -> T where T : UICollectionViewCell & DequeableComponentIdentifiable {
+      return dequeueReusableCell(withReuseIdentifier: T.dequableComponentIdentifier, for: indexPath) as! T
+    }
 }

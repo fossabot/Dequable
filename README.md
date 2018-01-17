@@ -38,7 +38,9 @@ And that's it! 🤥 (unless you're using interface builder?)
 
 ## Interface Builder
 
-* Your interface builder filename should match your UITableViewCell class name .e.g `TableViewCell.xib`.
+If you are using interface builder with this framework, please ensure the following.
+
+* Your interface builder filename should match the name of your UITableViewCell subclass .e.g `TableViewCell.xib`.
 * Your interface builder file `TableViewCell.xib` should be in the same bundle as your code `TableViewCell.swift`.
 * The cell identifier in your interface builder file should be `"Classname"` + `"ID"` e.g. `"TableViewCellID"`.
 * If you are not using storyboard + prototype cells then register your cells somewhere suitable.
@@ -48,13 +50,9 @@ class TableView: UITableView, DequeableTableView {
     
   override init(frame: CGRect, style: UITableViewStyle) {
     super.init(frame: frame, style: style)
-    register(cellType: TableViewCell.self, hasNib: false)
+    register(cellType: TableViewCell.self)
+    //register(cellType: TableViewCell.self, hasNib: true)
   }
-
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-  }
-  
 }
 ```
 

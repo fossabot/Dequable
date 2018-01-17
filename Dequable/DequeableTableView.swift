@@ -13,21 +13,21 @@ public protocol DequeableTableView: Dequeable {
     func dequeue<T>(_ indexPath: IndexPath) -> T where T : UITableViewCell & DequeableComponentIdentifiable
 }
 
-extension DequeableTableView where Self: UITableView {
+public extension DequeableTableView where Self: UITableView {
     
-    public func register(headerFooterViewType: DequeableComponentIdentifiable.Type, hasNib: Bool) {
+    func register(headerFooterViewType: DequeableComponentIdentifiable.Type, hasNib: Bool) {
         let identifier = headerFooterViewType.dequableComponentIdentifier
         if hasNib == true {
             let className = NSStringFromClass(headerFooterViewType).components(separatedBy: ".").last!
-            let nib = UINib(nibName: className, bundle: Bundle(for: headerFooterViewType))
+            let bundle = Bundle(for: headerFooterViewType)
+            let nib = UINib(nibName: className, bundle: bundle)
             register(nib, forHeaderFooterViewReuseIdentifier: identifier)
         } else {
             register(headerFooterViewType, forHeaderFooterViewReuseIdentifier: identifier)
         }
     }
     
-    public func dequeue<T>(_ indexPath: IndexPath) -> T where T : UITableViewCell & DequeableComponentIdentifiable {
+    func dequeue<T>(_ indexPath: IndexPath) -> T where T : UITableViewCell & DequeableComponentIdentifiable {
         return dequeueReusableCell(withIdentifier: T.dequableComponentIdentifier, for: indexPath) as! T
     }
-    
 }

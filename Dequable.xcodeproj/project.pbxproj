@@ -19,8 +19,6 @@
 		5037199A1F98F45B0065628C /* DequableDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503719991F98F45B0065628C /* DequableDemoUITests.swift */; };
 		503719A21F98F4A40065628C /* Dequable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5037195C1F98F1F80065628C /* Dequable.framework */; };
 		503719A31F98F4A40065628C /* Dequable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5037195C1F98F1F80065628C /* Dequable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		503719A81F98F8B60065628C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503719A71F98F8B60065628C /* DetailViewController.swift */; };
-		503719AA1F98FB050065628C /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 503719A91F98FB050065628C /* DetailTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,8 +69,6 @@
 		503719951F98F45B0065628C /* DequableDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DequableDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		503719991F98F45B0065628C /* DequableDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DequableDemoUITests.swift; sourceTree = "<group>"; };
 		5037199B1F98F45B0065628C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		503719A71F98F8B60065628C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		503719A91F98FB050065628C /* DetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
 		50476952200FCF8000C2DC36 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,9 +123,9 @@
 			isa = PBXGroup;
 			children = (
 				503719771F98F23A0065628C /* Dequeable.swift */,
+				503719761F98F23A0065628C /* DequeableTableView.swift */,
 				503719791F98F23A0065628C /* DequeableCollectionView.swift */,
 				503719781F98F23A0065628C /* DequeableComponentIdentifiable.swift */,
-				503719761F98F23A0065628C /* DequeableTableView.swift */,
 				503719601F98F1F80065628C /* Info.plist */,
 			);
 			path = Dequable;
@@ -140,9 +136,7 @@
 			children = (
 				503719841F98F45B0065628C /* AppDelegate.swift */,
 				503719861F98F45B0065628C /* ViewController.swift */,
-				503719A71F98F8B60065628C /* DetailViewController.swift */,
 				503719881F98F45B0065628C /* Main.storyboard */,
-				503719A91F98FB050065628C /* DetailTableViewCell.xib */,
 				5037198B1F98F45B0065628C /* Assets.xcassets */,
 				5037198D1F98F45B0065628C /* LaunchScreen.storyboard */,
 				503719901F98F45B0065628C /* Info.plist */,
@@ -287,7 +281,6 @@
 			files = (
 				5037198F1F98F45B0065628C /* LaunchScreen.storyboard in Resources */,
 				5037198C1F98F45B0065628C /* Assets.xcassets in Resources */,
-				503719AA1F98FB050065628C /* DetailTableViewCell.xib in Resources */,
 				5037198A1F98F45B0065628C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,7 +310,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				503719A81F98F8B60065628C /* DetailViewController.swift in Sources */,
 				503719871F98F45B0065628C /* ViewController.swift in Sources */,
 				503719851F98F45B0065628C /* AppDelegate.swift in Sources */,
 			);

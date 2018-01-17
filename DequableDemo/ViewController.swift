@@ -9,36 +9,39 @@
 import UIKit
 import Dequable
 
-class TableViewCell: UITableViewCell, DequeableComponentIdentifiable {}
+class TableViewCell: UITableViewCell, DequeableComponentIdentifiable {
+    
+}
 
-class TableView: UITableView, DequeableTableView {}
+class TableView: UITableView, DequeableTableView {
+    
+}
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController {
 
-  @IBOutlet weak var tableView: TableView! {
-    didSet {
-      tableView.dataSource = self
-      tableView.delegate = self
+    @IBOutlet weak var tableView: TableView! {
+        didSet {
+          tableView.dataSource = self
+        }
     }
-  }
-  
-  func numberOfSections(in tableView: UITableView) -> Int {
-    return 1
-  }
-  
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 100
-  }
-  
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell: TableViewCell = (tableView as! DequeableTableView).dequeue(indexPath)
-    cell.textLabel?.text = "Row \(indexPath.row + 1)"
-    return cell
-  }
-  
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let controller = DetailViewController()
-    navigationController?.pushViewController(controller, animated: true)
-  }
-  
+}
+
+extension ViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 100
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let dequableTableView = tableView as? DequeableTableView else {
+            fatalError("Must conform to DequeableTableView")
+        }
+        let cell: TableViewCell = dequableTableView.dequeue(indexPath)
+        cell.textLabel?.text = "Row \(indexPath.row + 1)"
+        return cell
+    }
 }
