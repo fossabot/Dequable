@@ -34,6 +34,32 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
 
 ```
 
+And that's it! 🤥 (unless you're using interface builder?)
+
+## Interface Builder
+
+* The cell identifier in your interface builder file should be `"Classname"` + `"ID"` e.g. `"TableViewCellID"`.
+* If for some reason your UITableViewCell subclasses implements `CustomDebugStringConvertible`, `CustomStringConvertible` or `TextOutputStreamable` make sure the return value for these implementations matches the cell identifier you have set in interface builder.
+
+If you are not using storyboard + prototype cells then register your cells somewhere suitable.
+
+```swift
+class TableView: UITableView, DequeableTableView {
+    
+  override init(frame: CGRect, style: UITableViewStyle) {
+    super.init(frame: frame, style: style)
+    register(cellType: TableViewCell.self, hasNib: false)
+  }
+
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+  }
+  
+}
+```
+
+* Your interface builder file `TableViewCell.xib` should be in the same bundle as your code `TableViewCell.swift`.
+
 ## UICollectionView
 
 Declare conformance.
@@ -54,31 +80,6 @@ func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath:
 }
 
 ```
-
-
-## Interface Builder
-
-If you use interface builder then you will need to specify a cell identifier in your interface builder file. The cell identifier should be `"Filename"` + `"ID"`. In the above UITableView example it would be `"TableViewCellID"`. 
-
-It is assumed your interface builder file is in the same bundle. Using the same example above, if we created an interface builder file `TableViewCell.xib`, it would be accompanied in the same bundle as `TableViewCell.swift`.
-
-If you are not using storyboard + prototype cells then register your cells somewhere suitable.
-
-```swift
-class TableView: UITableView, DequeableTableView {
-    
-  override init(frame: CGRect, style: UITableViewStyle) {
-    super.init(frame: frame, style: style)
-    register(cellType: TableViewCell.self, hasNib: false)
-  }
-
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-  }
-  
-}
-```
-
 
 ## Installing
 

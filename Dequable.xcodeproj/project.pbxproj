@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5037196D1F98F1F80065628C /* Dequable.h in Headers */ = {isa = PBXBuildFile; fileRef = 5037195F1F98F1F80065628C /* Dequable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5037197A1F98F23A0065628C /* DequeableTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503719761F98F23A0065628C /* DequeableTableView.swift */; };
 		5037197B1F98F23A0065628C /* Dequeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503719771F98F23A0065628C /* Dequeable.swift */; };
 		5037197C1F98F23A0065628C /* DequeableComponentIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503719781F98F23A0065628C /* DequeableComponentIdentifiable.swift */; };
@@ -57,7 +56,6 @@
 
 /* Begin PBXFileReference section */
 		5037195C1F98F1F80065628C /* Dequable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Dequable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5037195F1F98F1F80065628C /* Dequable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Dequable.h; sourceTree = "<group>"; };
 		503719601F98F1F80065628C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		503719761F98F23A0065628C /* DequeableTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DequeableTableView.swift; sourceTree = "<group>"; };
 		503719771F98F23A0065628C /* Dequeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dequeable.swift; sourceTree = "<group>"; };
@@ -126,7 +124,6 @@
 		5037195E1F98F1F80065628C /* Dequable */ = {
 			isa = PBXGroup;
 			children = (
-				5037195F1F98F1F80065628C /* Dequable.h */,
 				503719771F98F23A0065628C /* Dequeable.swift */,
 				503719791F98F23A0065628C /* DequeableCollectionView.swift */,
 				503719781F98F23A0065628C /* DequeableComponentIdentifiable.swift */,
@@ -167,7 +164,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5037196D1F98F1F80065628C /* Dequable.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
