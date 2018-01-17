@@ -16,10 +16,10 @@ public protocol DequeableTableView: Dequeable {
 extension DequeableTableView where Self: UITableView {
     
     public func register(headerFooterViewType: DequeableComponentIdentifiable.Type, hasNib: Bool) {
-        let name = String(describing: headerFooterViewType)
         let identifier = headerFooterViewType.dequableComponentIdentifier
         if hasNib == true {
-            let nib = UINib(nibName: name, bundle: Bundle(for: headerFooterViewType))
+            let className = NSStringFromClass(headerFooterViewType).components(separatedBy: ".").last!
+            let nib = UINib(nibName: className, bundle: Bundle(for: headerFooterViewType))
             register(nib, forHeaderFooterViewReuseIdentifier: identifier)
         } else {
             register(headerFooterViewType, forHeaderFooterViewReuseIdentifier: identifier)

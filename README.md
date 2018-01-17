@@ -38,10 +38,10 @@ And that's it! 🤥 (unless you're using interface builder?)
 
 ## Interface Builder
 
+* Your interface builder filename should match your UITableViewCell class name .e.g `TableViewCell.xib`.
+* Your interface builder file `TableViewCell.xib` should be in the same bundle as your code `TableViewCell.swift`.
 * The cell identifier in your interface builder file should be `"Classname"` + `"ID"` e.g. `"TableViewCellID"`.
-* If for some reason your UITableViewCell subclasses implements `CustomDebugStringConvertible`, `CustomStringConvertible` or `TextOutputStreamable` make sure the return value for these implementations matches the cell identifier you have set in interface builder.
-
-If you are not using storyboard + prototype cells then register your cells somewhere suitable.
+* If you are not using storyboard + prototype cells then register your cells somewhere suitable.
 
 ```swift
 class TableView: UITableView, DequeableTableView {
@@ -57,8 +57,6 @@ class TableView: UITableView, DequeableTableView {
   
 }
 ```
-
-* Your interface builder file `TableViewCell.xib` should be in the same bundle as your code `TableViewCell.swift`.
 
 ## UICollectionView
 

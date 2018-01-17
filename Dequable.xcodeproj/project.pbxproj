@@ -73,6 +73,7 @@
 		5037199B1F98F45B0065628C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		503719A71F98F8B60065628C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		503719A91F98FB050065628C /* DetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
+		50476952200FCF8000C2DC36 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +105,7 @@
 		503719521F98F1F80065628C = {
 			isa = PBXGroup;
 			children = (
+				50476952200FCF8000C2DC36 /* README.md */,
 				5037195E1F98F1F80065628C /* Dequable */,
 				503719831F98F45B0065628C /* DequableDemo */,
 				503719981F98F45B0065628C /* DequableDemoUITests */,

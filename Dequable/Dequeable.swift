@@ -15,10 +15,10 @@ public protocol Dequeable {
 extension Dequeable where Self: UITableView {
     
     public func register(cellType: DequeableComponentIdentifiable.Type, hasNib: Bool) {
-        let name = String(describing: cellType)
         let identifier = cellType.dequableComponentIdentifier
         if hasNib == true {
-            let nib = UINib(nibName: name, bundle: Bundle(for: cellType))
+            let className = NSStringFromClass(cellType).components(separatedBy: ".").last!
+            let nib = UINib(nibName: className, bundle: Bundle(for: cellType))
             register(nib, forCellReuseIdentifier: identifier)
         } else {
             register(cellType, forCellReuseIdentifier: identifier)
@@ -30,10 +30,10 @@ extension Dequeable where Self: UITableView {
 extension Dequeable where Self: UICollectionView {
     
     public func register(cellType: DequeableComponentIdentifiable.Type, hasNib: Bool) {
-        let name = String(describing: cellType)
         let identifier = cellType.dequableComponentIdentifier
         if hasNib == true {
-            let nib = UINib(nibName: name, bundle: Bundle(for: cellType))
+            let className = NSStringFromClass(cellType).components(separatedBy: ".").last!
+            let nib = UINib(nibName: className, bundle: Bundle(for: cellType))
             register(nib, forCellWithReuseIdentifier: identifier)
         } else {
             register(cellType, forCellWithReuseIdentifier: identifier)
