@@ -58,7 +58,7 @@ register(cellType: TableViewCell.self, hasXib: true)
 ```
 
 Dequeuing UICollectionViewCell's or supplementary views, is very similar to the above.
-å
+
 ## Installing
 
 ### Carthage:
