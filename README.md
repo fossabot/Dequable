@@ -13,9 +13,11 @@
 
 Dequable allows you to write strongly typed let constants for your dequable UI components and limits the need for string based cell identifiers. If you don't use interface builder, then **you will not need to declare any cell identifiers**.
 
-## UITableView
+## Usage
 
-Declare conformance.
+The following includes the awesome [require framework](https://github.com/JohnSundell/Require).
+
+Firstly, subclass and declare conformance.
 
 ```swift
 class TableViewCell: UITableViewCell, DequeableComponentIdentifiable {}
@@ -33,7 +35,6 @@ Then dequeue to an annotated constant `cell`.
 
 ```swift
 func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-  //You may want to use the awesome [require framework](https://github.com/JohnSundell/Require) to lock down your optionals.
   let dequeableTableView: DequeableTableView = (tableView as? DequeableTableView).require(hint: "Must conform to DequeableTableView")
   let cell: TableViewCell = dequeableTableView.dequeue(indexPath)
   return cell
@@ -46,42 +47,18 @@ And that's it! 🤥 (unless you're using interface builder?)
 
 If you are using interface builder with this framework, please ensure the following.
 
-* Your interface builder filename should match the name of your UITableViewCell subclass .e.g `TableViewCell.xib`.
-* Your interface builder file `TableViewCell.xib` should be in the same bundle as your code `TableViewCell.swift`.
+* If you are not using a xib file but you are using a storyboard file + prototype cells, then you *will not* need to register cells.
 * The cell identifier in your interface builder file should be `"Classname"` + `"ID"` e.g. `"TableViewCellID"`.
-* If you are not using storyboard + prototype cells then register your cells somewhere suitable.
+* Your xib filename should match the name of your subclass .e.g `TableViewCell.xib`.
+* Your xib file `TableViewCell.xib` should be in the same bundle as your code `TableViewCell.swift`.
+* If you are using a xib, you must register your cells with `hasXib: true`.
 
 ```swift
-class TableView: UITableView, DequeableTableView {
-    
-  override init(frame: CGRect, style: UITableViewStyle) {
-    super.init(frame: frame, style: style)
-    register(cellType: TableViewCell.self, hasNib: true)
-  }
-}
+register(cellType: TableViewCell.self, hasXib: true)
 ```
 
-## UICollectionView
-
-Declare conformance.
-
-```swift
-class CollectionViewCell: UICollectionViewCell, DequeableComponentIdentifiable {}
-
-class CollectionView: UICollectionView, DequeableCollectionView {}
-```
-
-Then dequeue by explicity typing a stored property. You may want to use the awesome [require framework](https://github.com/JohnSundell/Require) to lock down your optionals.
-
-```swift
-func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-  let dequeableCollectionView: DequeableCollectionView = (collectionView as? DequeableCollectionView).require(hint: "Must conform to DequeableCollectionView")
-  let cell: CollectionViewCell = dequeableCollectionView.dequeue(indexPath)
-  return cell
-}
-
-```
-
+Dequeuing UICollectionViewCell's or supplementary views, is very similar to the above.
+å
 ## Installing
 
 ### Carthage:

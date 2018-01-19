@@ -10,21 +10,21 @@ import UIKit
 
 public protocol Dequeable {
     func register(cellType: DequeableComponentIdentifiable.Type)
-    func register(cellType: DequeableComponentIdentifiable.Type, hasNib: Bool)
+    func register(cellType: DequeableComponentIdentifiable.Type, hasXib: Bool)
 }
 
 public extension Dequeable {
     
     func register(cellType: DequeableComponentIdentifiable.Type) {
-        register(cellType: cellType, hasNib: false)
+        register(cellType: cellType, hasXib: false)
     }
 }
 
 public extension Dequeable where Self: UITableView {
     
-    func register(cellType: DequeableComponentIdentifiable.Type, hasNib: Bool) {
+    func register(cellType: DequeableComponentIdentifiable.Type, hasXib: Bool) {
         let identifier = cellType.dequableComponentIdentifier
-        if hasNib == true {
+        if hasXib == true {
             let className = NSStringFromClass(cellType).components(separatedBy: ".").last!
             let nib = UINib(nibName: className, bundle: Bundle(for: cellType))
             register(nib, forCellReuseIdentifier: identifier)
@@ -36,9 +36,9 @@ public extension Dequeable where Self: UITableView {
 
 public extension Dequeable where Self: UICollectionView {
     
-    func register(cellType: DequeableComponentIdentifiable.Type, hasNib: Bool) {
+    func register(cellType: DequeableComponentIdentifiable.Type, hasXib: Bool) {
         let identifier = cellType.dequableComponentIdentifier
-        if hasNib == true {
+        if hasXib == true {
             let className = NSStringFromClass(cellType).components(separatedBy: ".").last!
             let nib = UINib(nibName: className, bundle: Bundle(for: cellType))
             register(nib, forCellWithReuseIdentifier: identifier)

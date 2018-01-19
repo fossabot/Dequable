@@ -10,19 +10,19 @@ import UIKit
 
 public protocol DequeableCollectionView: Dequeable {
     func register(_ headerFooterViewType: DequeableComponentIdentifiable.Type, forSupplementaryViewOfKind kind: String)
-    func register(_ headerFooterViewType: DequeableComponentIdentifiable.Type, forSupplementaryViewOfKind kind: String, hasNib: Bool)
+    func register(_ headerFooterViewType: DequeableComponentIdentifiable.Type, forSupplementaryViewOfKind kind: String, hasXib: Bool)
     func dequeue<T>(_ indexPath: IndexPath) -> T where T : UICollectionViewCell & DequeableComponentIdentifiable
 }
 
 public extension DequeableCollectionView where Self: UICollectionView {
     
     func register(_ headerFooterViewType: DequeableComponentIdentifiable.Type, forSupplementaryViewOfKind kind: String) {
-        register(headerFooterViewType, forSupplementaryViewOfKind: kind, hasNib: false)
+        register(headerFooterViewType, forSupplementaryViewOfKind: kind, hasXib: false)
     }
     
-    func register(_ headerFooterViewType: DequeableComponentIdentifiable.Type, forSupplementaryViewOfKind kind: String, hasNib: Bool) {
+    func register(_ headerFooterViewType: DequeableComponentIdentifiable.Type, forSupplementaryViewOfKind kind: String, hasXib: Bool) {
         let identifier = headerFooterViewType.dequableComponentIdentifier
-        if hasNib == true {
+        if hasXib == true {
             let className = NSStringFromClass(headerFooterViewType).components(separatedBy: ".").last!
             let nib = UINib(nibName: className, bundle: Bundle(for: headerFooterViewType))
             register(nib, forSupplementaryViewOfKind: kind, withReuseIdentifier: identifier)
