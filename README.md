@@ -23,12 +23,17 @@ class TableViewCell: UITableViewCell, DequeableComponentIdentifiable {}
 class TableView: UITableView, DequeableTableView {}
 ```
 
-Then dequeue by explicity typing a stored property. You may want to use the awesome [require framework](https://github.com/JohnSundell/Require) to lock down your optionals.
+Then register your cells.
 
 ```swift
-self.tableView.register(cellType: TableViewCell.self)
+tableView.register(cellType: TableViewCell.self)
+```
 
+Then dequeue to an annotated constant `cell`.
+
+```swift
 func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+  //You may want to use the awesome [require framework](https://github.com/JohnSundell/Require) to lock down your optionals.
   let dequeableTableView: DequeableTableView = (tableView as? DequeableTableView).require(hint: "Must conform to DequeableTableView")
   let cell: TableViewCell = dequeableTableView.dequeue(indexPath)
   return cell
