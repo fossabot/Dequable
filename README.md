@@ -26,12 +26,13 @@ class TableView: UITableView, DequeableTableView {}
 Then dequeue by explicity typing a stored property. You may want to use the awesome [require framework](https://github.com/JohnSundell/Require) to lock down your optionals.
 
 ```swift
+self.tableView.register(cellType: TableViewCell.self)
+
 func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
   let dequeableTableView: DequeableTableView = (tableView as? DequeableTableView).require(hint: "Must conform to DequeableTableView")
   let cell: TableViewCell = dequeableTableView.dequeue(indexPath)
   return cell
 }
-
 ```
 
 And that's it! 🤥 (unless you're using interface builder?)
@@ -50,8 +51,7 @@ class TableView: UITableView, DequeableTableView {
     
   override init(frame: CGRect, style: UITableViewStyle) {
     super.init(frame: frame, style: style)
-    register(cellType: TableViewCell.self)
-    //register(cellType: TableViewCell.self, hasNib: true)
+    register(cellType: TableViewCell.self, hasNib: true)
   }
 }
 ```
