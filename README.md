@@ -9,15 +9,22 @@
     <a href="https://twitter.com/nashytitz">
         <img src="https://img.shields.io/badge/contact-@nashytitz-blue.svg?style=flat" alt="Twitter: @nashytitz" />
     </a>
+    <a href="https://codebeat.co/projects/github-com-rob-nash-dequable-master">
+      <img alt="codebeat badge" src="https://codebeat.co/badges/e5078705-a2be-443b-b60f-1b61b2565758" />
+    </a>
+    <a href="https://swift.org">
+        <img src="https://img.shields.io/badge/swift-4.1-green.svg?style=flat" alt="Swift: 4.1" />
+    </a>
+    <a href="https://developer.apple.com">
+        <img src="https://img.shields.io/badge/xcode-9+-green.svg?style=flat" alt="Xcode: 9+" />
+    </a>
 </p>
 
-Dequable allows you to write strongly typed let constants for your dequable UI components and limits the need for string based cell identifiers. If you don't use interface builder, then **you will not need to declare any cell identifiers**.
+Dequable limits the need for string based cell identifiers. **You won't need any** if you avoid interface builder.
 
 ## Usage
 
-The following includes the awesome [require framework](https://github.com/JohnSundell/Require).
-
-Firstly, subclass and declare conformance.
+Step 1
 
 ```swift
 class TableViewCell: UITableViewCell, DequeableComponentIdentifiable {}
@@ -25,13 +32,13 @@ class TableViewCell: UITableViewCell, DequeableComponentIdentifiable {}
 class TableView: UITableView, DequeableTableView {}
 ```
 
-Then register your cells.
+Step 2
 
 ```swift
 tableView.register(cellType: TableViewCell.self)
 ```
 
-Then dequeue to an annotated constant `cell`.
+Step 3
 
 ```swift
 func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -41,16 +48,18 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
 }
 ```
 
+Notice the use of [require()](https://github.com/JohnSundell/Require)
+
 And that's it! 🤥 (unless you're using interface builder?)
 
 ## Interface Builder
 
 If you are using interface builder with this framework, please ensure the following.
 
-* If you are not using a xib file but you are using a storyboard file + prototype cells, then you *will not* need to register cells.
+* Your xib file `TableViewCell.xib` should be in the same bundle as your code `TableViewCell.swift`.
 * The cell identifier in your interface builder file should be `"Classname"` + `"ID"` e.g. `"TableViewCellID"`.
 * Your xib filename should match the name of your subclass .e.g `TableViewCell.xib`.
-* Your xib file `TableViewCell.xib` should be in the same bundle as your code `TableViewCell.swift`.
+* If you are not using a xib file but you are using a storyboard file + prototype cells, then you *will not* need to register cells.
 * If you are using a xib, you must register your cells with `hasXib: true`.
 
 ```swift
@@ -61,13 +70,8 @@ Dequeuing UICollectionViewCell's or supplementary views, is very similar to the 
 
 ## Installing
 
+For the latest release, select the [Releases](https://github.com/rob-nash/Dequable/releases) tab.
+
 ### Carthage:
 
 Add `github "rob-nash/Dequable"` to your `Cartfile`.
-
-### Donations.
-<p>If you like this and you want to buy me a drink, use bitcoin.</p>
-
-![Bitcoin Image](Resources/Bitcoin.jpg)
-
-Bitcoin Address: 15Gj4DBTzSujnJrfRZ6ivrR9kDnWXNPvNQ
