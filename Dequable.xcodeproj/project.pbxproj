@@ -18,6 +18,7 @@
 		5037199A1F98F45B0065628C /* DequableDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503719991F98F45B0065628C /* DequableDemoUITests.swift */; };
 		503719A21F98F4A40065628C /* Dequable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5037195C1F98F1F80065628C /* Dequable.framework */; };
 		503719A31F98F4A40065628C /* Dequable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5037195C1F98F1F80065628C /* Dequable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5053C9FE211C969F00F927DD /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5053C9FD211C969F00F927DD /* Utility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		503719991F98F45B0065628C /* DequableDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DequableDemoUITests.swift; sourceTree = "<group>"; };
 		5037199B1F98F45B0065628C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50476952200FCF8000C2DC36 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5053C9FD211C969F00F927DD /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				503719761F98F23A0065628C /* DequeableTableView.swift */,
 				503719791F98F23A0065628C /* DequeableCollectionView.swift */,
 				503719781F98F23A0065628C /* DequeableComponentIdentifiable.swift */,
+				5053C9FD211C969F00F927DD /* Utility.swift */,
 				503719601F98F1F80065628C /* Info.plist */,
 			);
 			path = Dequable;
@@ -295,6 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5053C9FE211C969F00F927DD /* Utility.swift in Sources */,
 				5037197B1F98F23A0065628C /* Dequeable.swift in Sources */,
 				5037197C1F98F23A0065628C /* DequeableComponentIdentifiable.swift in Sources */,
 				5037197A1F98F23A0065628C /* DequeableTableView.swift in Sources */,
