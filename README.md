@@ -6,17 +6,14 @@
     <a href="https://travis-ci.org/rob-nash/Dequable">
         <img src="https://travis-ci.org/rob-nash/Dequable.svg?branch=master" alt="Build" />
     </a>
-    <a href="https://twitter.com/nashytitz">
-        <img src="https://img.shields.io/badge/contact-@nashytitz-blue.svg?style=flat" alt="Twitter: @nashytitz" />
+    <a href="https://img.shields.io/badge/carthage-compatible-brightgreen.svg">
+        <img src="https://img.shields.io/badge/carthage-compatible-brightgreen.svg" alt="Carthage"/>
     </a>
     <a href="https://codebeat.co/projects/github-com-rob-nash-dequable-master">
       <img alt="codebeat badge" src="https://codebeat.co/badges/e5078705-a2be-443b-b60f-1b61b2565758" />
     </a>
-    <a href="https://swift.org">
-        <img src="https://img.shields.io/badge/swift-4.1-green.svg?style=flat" alt="Swift: 4.1" />
-    </a>
-    <a href="https://developer.apple.com">
-        <img src="https://img.shields.io/badge/xcode-9+-green.svg?style=flat" alt="Xcode: 9+" />
+    <a href="https://twitter.com/nashytitz">
+        <img src="https://img.shields.io/badge/contact-@nashytitz-blue.svg?style=flat" alt="Twitter: @nashytitz" />
     </a>
 </p>
 
