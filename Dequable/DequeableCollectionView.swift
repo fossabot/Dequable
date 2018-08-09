@@ -16,7 +16,7 @@ public extension DequeableCollectionView where Self: UICollectionView {
     func register(_ headerFooterViewType: DequeableComponentIdentifiable.Type, forSupplementaryViewOfKind kind: String, hasXib: Bool) {
         let identifier = headerFooterViewType.dequableComponentIdentifier
         if hasXib == true {
-            let className = NSStringFromClass(headerFooterViewType).components(separatedBy: ".").last!
+            let className = typeName(headerFooterViewType)
             let nib = UINib(nibName: className, bundle: Bundle(for: headerFooterViewType))
             register(nib, forSupplementaryViewOfKind: kind, withReuseIdentifier: identifier)
         } else {

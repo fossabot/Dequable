@@ -10,7 +10,7 @@ public extension DequeableTableView where Self: UITableView {
     func register(headerFooterViewType: DequeableComponentIdentifiable.Type, hasXib: Bool) {
         let identifier = headerFooterViewType.dequableComponentIdentifier
         if hasXib == true {
-            let className = NSStringFromClass(headerFooterViewType).components(separatedBy: ".").last!
+            let className = typeName(headerFooterViewType)
             let bundle = Bundle(for: headerFooterViewType)
             let nib = UINib(nibName: className, bundle: bundle)
             register(nib, forHeaderFooterViewReuseIdentifier: identifier)

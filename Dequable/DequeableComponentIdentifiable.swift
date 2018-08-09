@@ -7,7 +7,7 @@ public protocol DequeableComponentIdentifiable: class {
 public extension DequeableComponentIdentifiable {
   
     static var dequableComponentIdentifier: String {
-        return NSStringFromClass(Self.self).components(separatedBy: ".").last! + "ID"
+        return typeName(Self.self) + "ID"
     }
     
 }

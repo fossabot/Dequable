@@ -17,7 +17,7 @@ public extension Dequeable where Self: UITableView {
     func register(cellType: DequeableComponentIdentifiable.Type, hasXib: Bool) {
         let identifier = cellType.dequableComponentIdentifier
         if hasXib == true {
-            let className = NSStringFromClass(cellType).components(separatedBy: ".").last!
+            let className = typeName(cellType)
             let nib = UINib(nibName: className, bundle: Bundle(for: cellType))
             register(nib, forCellReuseIdentifier: identifier)
         } else {
@@ -31,7 +31,7 @@ public extension Dequeable where Self: UICollectionView {
     func register(cellType: DequeableComponentIdentifiable.Type, hasXib: Bool) {
         let identifier = cellType.dequableComponentIdentifier
         if hasXib == true {
-            let className = NSStringFromClass(cellType).components(separatedBy: ".").last!
+            let className = typeName(cellType)
             let nib = UINib(nibName: className, bundle: Bundle(for: cellType))
             register(nib, forCellWithReuseIdentifier: identifier)
         } else {
