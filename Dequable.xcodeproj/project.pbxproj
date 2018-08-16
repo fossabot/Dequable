@@ -15,20 +15,12 @@
 		503719871F98F45B0065628C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503719861F98F45B0065628C /* ViewController.swift */; };
 		5037198C1F98F45B0065628C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5037198B1F98F45B0065628C /* Assets.xcassets */; };
 		5037198F1F98F45B0065628C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5037198D1F98F45B0065628C /* LaunchScreen.storyboard */; };
-		5037199A1F98F45B0065628C /* DequableDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503719991F98F45B0065628C /* DequableDemoUITests.swift */; };
 		503719A21F98F4A40065628C /* Dequable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5037195C1F98F1F80065628C /* Dequable.framework */; };
 		503719A31F98F4A40065628C /* Dequable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5037195C1F98F1F80065628C /* Dequable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5053C9FE211C969F00F927DD /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5053C9FD211C969F00F927DD /* Utility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		503719961F98F45B0065628C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 503719531F98F1F80065628C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 503719811F98F45B0065628C;
-			remoteInfo = DequableDemo;
-		};
 		503719A41F98F4A40065628C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 503719531F98F1F80065628C /* Project object */;
@@ -65,9 +57,6 @@
 		5037198B1F98F45B0065628C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5037198E1F98F45B0065628C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		503719901F98F45B0065628C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		503719951F98F45B0065628C /* DequableDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DequableDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		503719991F98F45B0065628C /* DequableDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DequableDemoUITests.swift; sourceTree = "<group>"; };
-		5037199B1F98F45B0065628C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50476952200FCF8000C2DC36 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5053C9FD211C969F00F927DD /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,13 +77,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		503719921F98F45B0065628C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -104,7 +86,6 @@
 				50476952200FCF8000C2DC36 /* README.md */,
 				5037195E1F98F1F80065628C /* Dequable */,
 				503719831F98F45B0065628C /* DequableDemo */,
-				503719981F98F45B0065628C /* DequableDemoUITests */,
 				5037195D1F98F1F80065628C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -114,7 +95,6 @@
 			children = (
 				5037195C1F98F1F80065628C /* Dequable.framework */,
 				503719821F98F45B0065628C /* DequableDemo.app */,
-				503719951F98F45B0065628C /* DequableDemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -142,15 +122,6 @@
 				503719901F98F45B0065628C /* Info.plist */,
 			);
 			path = DequableDemo;
-			sourceTree = "<group>";
-		};
-		503719981F98F45B0065628C /* DequableDemoUITests */ = {
-			isa = PBXGroup;
-			children = (
-				503719991F98F45B0065628C /* DequableDemoUITests.swift */,
-				5037199B1F98F45B0065628C /* Info.plist */,
-			);
-			path = DequableDemoUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,24 +174,6 @@
 			productReference = 503719821F98F45B0065628C /* DequableDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		503719941F98F45B0065628C /* DequableDemoUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5037199F1F98F45B0065628C /* Build configuration list for PBXNativeTarget "DequableDemoUITests" */;
-			buildPhases = (
-				503719911F98F45B0065628C /* Sources */,
-				503719921F98F45B0065628C /* Frameworks */,
-				503719931F98F45B0065628C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				503719971F98F45B0065628C /* PBXTargetDependency */,
-			);
-			name = DequableDemoUITests;
-			productName = DequableDemoUITests;
-			productReference = 503719951F98F45B0065628C /* DequableDemoUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -240,11 +193,6 @@
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
 					};
-					503719941F98F45B0065628C = {
-						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 503719811F98F45B0065628C;
-					};
 				};
 			};
 			buildConfigurationList = 503719561F98F1F80065628C /* Build configuration list for PBXProject "Dequable" */;
@@ -262,7 +210,6 @@
 			targets = (
 				5037195B1F98F1F80065628C /* Dequable */,
 				503719811F98F45B0065628C /* DequableDemo */,
-				503719941F98F45B0065628C /* DequableDemoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -281,13 +228,6 @@
 			files = (
 				5037198F1F98F45B0065628C /* LaunchScreen.storyboard in Resources */,
 				5037198C1F98F45B0065628C /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		503719931F98F45B0065628C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,22 +255,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		503719911F98F45B0065628C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5037199A1F98F45B0065628C /* DequableDemoUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		503719971F98F45B0065628C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 503719811F98F45B0065628C /* DequableDemo */;
-			targetProxy = 503719961F98F45B0065628C /* PBXContainerItemProxy */;
-		};
 		503719A51F98F4A40065628C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5037195B1F98F1F80065628C /* Dequable */;
@@ -538,36 +465,6 @@
 			};
 			name = Release;
 		};
-		503719A01F98F45B0065628C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = DequableDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.robertnash.DequableDemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = DequableDemo;
-			};
-			name = Debug;
-		};
-		503719A11F98F45B0065628C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = DequableDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.robertnash.DequableDemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = DequableDemo;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -594,15 +491,6 @@
 			buildConfigurations = (
 				5037199D1F98F45B0065628C /* Debug */,
 				5037199E1F98F45B0065628C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5037199F1F98F45B0065628C /* Build configuration list for PBXNativeTarget "DequableDemoUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				503719A01F98F45B0065628C /* Debug */,
-				503719A11F98F45B0065628C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
