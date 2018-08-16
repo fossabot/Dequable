@@ -4,4 +4,4 @@ osx_image: xcode9.3
 xcode_sdk: iphonesimulator11.3
 
 script: 
- - xcodebuild -scheme Dequable test
+ - xcodebuild -scheme Dequable build
