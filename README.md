@@ -39,13 +39,11 @@ Step 3
 
 ```swift
 func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-  let dequeableTableView: DequeableTableView = (tableView as? DequeableTableView).require(hint: "Must conform to DequeableTableView")
-  let cell: TableViewCell = dequeableTableView.dequeue(indexPath)
+  let tableView = tableView as! DequeableTableView
+  let cell: TableViewCell = tableView.dequeue(indexPath)
   return cell
 }
 ```
-
-Notice the use of [require()](https://github.com/JohnSundell/Require)
 
 And that's it! 🤥 (unless you're using interface builder?)
 
