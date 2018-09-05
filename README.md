@@ -17,27 +17,17 @@
     </a>
 </p>
 
-Dequable limits the need for reuse identifiers.
-
 ## Usage
 
-Step 1
+Say goodbye to reuse identifiers.
 
 ```swift
 class TableViewCell: UITableViewCell, DequeableComponentIdentifiable {}
 
 class TableView: UITableView, DequeableTableView {}
-```
 
-Step 2
-
-```swift
 tableView.register(cellType: TableViewCell.self)
-```
 
-Step 3
-
-```swift
 func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
   let tableView = tableView as! DequeableTableView
   let cell: TableViewCell = tableView.dequeue(indexPath)
@@ -45,21 +35,15 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
 }
 ```
 
-**No reuse identifiers needed!**
-
 ## Interface Builder
 
-* The cell identifier in your interface builder file should be `"Classname"` + `"ID"` e.g. `"TableViewCellID"`.
-* Your xib filename should match the name of your subclass .e.g `TableViewCell.xib`.
-* Your xib file `TableViewCell.xib` should be in the same bundle as your code `TableViewCell.swift`.
-* If you are using a storyboard file + prototype cells, then you *will not* need to register cells.
-* If you are using a xib, you must register your cells.
+If you are using interface builder then you will need to specify a reuse identifier in your storyboard or xib file. The cell identifier should be `"Classname"` + `"ID"` e.g. `"TableViewCellID".`
+
+If you're using a xib, you will need to mention that during registration.
 
 ```swift
 register(cellType: TableViewCell.self, hasXib: true)
 ```
-
-Dequeuing UICollectionViewCell's or supplementary views, is very similar to the above.
 
 ## Installing
 
