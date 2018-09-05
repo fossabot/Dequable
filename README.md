@@ -17,7 +17,7 @@
     </a>
 </p>
 
-Dequable limits the need for string based cell identifiers. **You won't need any** if you avoid interface builder.
+Dequable limits the need for reuse identifiers.
 
 ## Usage
 
@@ -45,17 +45,15 @@ func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> U
 }
 ```
 
-And that's it! 🤥 (unless you're using interface builder?)
+**No reuse identifiers needed!**
 
 ## Interface Builder
 
-If you are using interface builder with this framework, please ensure the following.
-
-* Your xib file `TableViewCell.xib` should be in the same bundle as your code `TableViewCell.swift`.
 * The cell identifier in your interface builder file should be `"Classname"` + `"ID"` e.g. `"TableViewCellID"`.
 * Your xib filename should match the name of your subclass .e.g `TableViewCell.xib`.
-* If you are not using a xib file but you are using a storyboard file + prototype cells, then you *will not* need to register cells.
-* If you are using a xib, you must register your cells with `hasXib: true`.
+* Your xib file `TableViewCell.xib` should be in the same bundle as your code `TableViewCell.swift`.
+* If you are using a storyboard file + prototype cells, then you *will not* need to register cells.
+* If you are using a xib, you must register your cells.
 
 ```swift
 register(cellType: TableViewCell.self, hasXib: true)
