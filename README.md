@@ -9,6 +9,7 @@
     <a href="https://img.shields.io/badge/carthage-compatible-brightgreen.svg">
         <img src="https://img.shields.io/badge/carthage-compatible-brightgreen.svg" alt="Carthage"/>
     </a>
+<a href="https://app.fossa.io/projects/git%2Bgithub.com%2Frob-nash%2FDequable?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.io/api/projects/git%2Bgithub.com%2Frob-nash%2FDequable.svg?type=shield"/></a>
     <a href="https://codebeat.co/projects/github-com-rob-nash-dequable-master">
       <img alt="codebeat badge" src="https://codebeat.co/badges/e5078705-a2be-443b-b60f-1b61b2565758" />
     </a>
@@ -52,3 +53,7 @@ For the latest release, select the [Releases](https://github.com/rob-nash/Dequab
 ### Carthage:
 
 Add `github "rob-nash/Dequable"` to your `Cartfile`.
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Frob-nash%2FDequable.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Frob-nash%2FDequable?ref=badge_large)
