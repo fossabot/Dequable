@@ -53,7 +53,3 @@ For the latest release, select the [Releases](https://github.com/rob-nash/Dequab
 ### Carthage:
 
 Add `github "rob-nash/Dequable"` to your `Cartfile`.
-
-
-## License
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Frob-nash%2FDequable.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Frob-nash%2FDequable?ref=badge_large)
